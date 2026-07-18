@@ -1,0 +1,127 @@
+﻿App: 
+The concept: A cross-platform communication app that combines real-time calling, messaging, file sharing, and meeting productivity tools — similar in scope to WhatsApp or Microsoft Teams.
+Required features:
+Real-time communication
+* Instant voice calls
+* Video calls
+* Group calls (voice)
+* Group video calls
+* Screen sharing
+Messaging & sharing
+* Messaging over the internet
+* Group chats
+* Sharing pictures and videos
+* Sharing documents
+Productivity
+* Annotation tools
+* Meeting notes taker / summarizer
+Security & privacy
+* Authentication protocol
+* 2-step verification
+* Encryption
+* Privacy controls
+Foundation
+* Database
+* User interface
+* Adding contacts
+* Compatibility with different operating systems
+
+
+
+
+
+
+PRD
+Who is the customer?
+* Demographic information: Broad appeal — ages 16–55, all genders, mixed socio-economic status. Core early adopters are likely 18–40: students, remote workers, and small teams who need messaging plus meetings in one place.
+* Language: English at launch, with the UI built for localization from day one (string files, not hardcoded text) so you can add languages later without rework.
+* Geographic region: Global by nature, but pick a launch region (e.g., North America) so you can handle data residency, compliance, and server locations deliberately.
+* Access to internet: Assumes reliable broadband/4G for calls, but messaging should tolerate weak connections (offline queuing, auto-retry, low-bandwidth mode).
+* Platform (OS): Windows, macOS, Android, iOS — with a web client as the lowest-friction entry point. This is your "compatibility with different OS" requirement.
+* Hardware access: Requires microphone and camera permissions; must run acceptably on mid-range phones and older laptops, not just flagship devices.
+Why → Target audience (Who)
+Who: Students, remote workers, and small teams (roughly 18–40) who live across multiple devices and operating systems, and who currently juggle separate apps for chatting, calling, and meetings.
+Why we exist: Communication today is fragmented. People message on one app, video call on another, and take meeting notes in a third. We believe staying connected and productive shouldn't require app-switching.
+What → The user's problem we're solving
+* Fragmentation: WhatsApp for chat, Zoom for meetings, Google Docs for notes — context and files get scattered across tools.
+* Lost information: Decisions made in calls evaporate because nobody took notes, or notes live somewhere separate from the conversation.
+* Platform lock-in: Some tools work great on one OS and poorly (or not at all) on others, forcing groups to settle on the lowest common denominator.
+* Privacy anxiety: Users don't trust that their conversations and files are secure, and privacy settings are often buried or confusing.
+Problem statement in one line: People waste time and lose information switching between disconnected communication tools that don't work equally well on every device.
+How → Our approach
+* One app for the full loop: message → share files → call → screen share → get an auto-generated summary, all in the same thread. The conversation and its outcomes live in one place.
+* Cross-platform parity: identical core experience on Windows, macOS, iOS, Android, and web — 
+* Security by default: encryption, 2FA, and clear privacy controls built in from day one, not bolted on.
+* The differentiator: the meeting notes taker/summarizer turns ephemeral calls into searchable, persistent knowledge — that's what makes this more than "another WhatsApp clone."
+
+
+Feature list — MuSCoW
+Must have (Mu) — the MVP that communicates value:
+* User interface
+* Authentication protocol + 2-step verification
+* Encryption (at minimum in transit and at rest)
+* Database
+* Adding contacts
+* Messaging over internet (1-on-1)
+* Sharing pictures/videos and documents
+* Instant voice calls
+* Video calls (1-on-1)
+* Privacy controls (basic: who can contact you, block users)
+Should have (S) — phase 2:
+* Group chats
+* Group voice calls
+* Group video calls
+* Screen sharing
+* End-to-end encryption (if MVP shipped with transport encryption only)
+Could have (Co) — good to have:
+* Annotation tools
+* Meeting notes taker/summarizer (high complexity — depends on transcription + AI services, so it earns its place only after calls are rock-solid)
+* Advanced privacy controls (disappearing messages, read receipt toggles)
+Wouldn't have (W) — feature bloat for this customer:
+* Social feed/stories
+* Payments/money transfer
+* Games, stickers marketplace
+* Public channels/broadcasting
+The logic: 1-on-1 messaging and calling proves the core value. Group features are the natural phase 2 because they reuse the same infrastructure at higher scale. The AI summarizer is your differentiator but the riskiest build, so it waits until the foundation works.
+CRUD ↔ Entities
+Entity
+	Create
+	Retrieve
+	Update
+	Delete
+	User/Account
+	Sign up
+	View profile, login
+	Edit profile, change password, privacy settings
+	Delete account
+	Contact
+	Add contact
+	View contact list, search
+	Rename, favorite
+	Remove, block
+	Message
+	Send message
+	Load chat history, search
+	Edit sent message
+	Delete for me / for everyone
+	Media/File
+	Upload photo, video, doc
+	Download, preview
+	Rename caption
+	Delete file
+	Group
+	Create group
+	View members, group info
+	Add/remove members, rename, change admins
+	Leave, delete group
+	Call session
+	Start/join call
+	View call history
+	Mute, toggle video, share screen (in-call state)
+	End call, clear history
+	Meeting notes
+	Auto-generate summary
+	View past summaries
+	Edit/annotate notes
+	Delete notes
+	A note on the framework itself: in the image, "Platform (OS) - Ex - photoshop, auto cad, blender" was using desktop software as examples of platform-specific products — your app should avoid that trap by being cross-platform from the start, which supports the Flutter/React Native discussion from earlier.
