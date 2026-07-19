@@ -1,4 +1,4 @@
-﻿App: 
+App: 
 The concept: A cross-platform communication app that combines real-time calling, messaging, file sharing, and meeting productivity tools — similar in scope to WhatsApp or Microsoft Teams.
 Required features:
 Real-time communication
@@ -83,6 +83,8 @@ Wouldn't have (W) — feature bloat for this customer:
 * Games, stickers marketplace
 * Public channels/broadcasting
 The logic: 1-on-1 messaging and calling proves the core value. Group features are the natural phase 2 because they reuse the same infrastructure at higher scale. The AI summarizer is your differentiator but the riskiest build, so it waits until the foundation works.
+
+
 CRUD ↔ Entities
 Entity
 	Create
@@ -124,4 +126,5 @@ Entity
 	View past summaries
 	Edit/annotate notes
 	Delete notes
-	A note on the framework itself: in the image, "Platform (OS) - Ex - photoshop, auto cad, blender" was using desktop software as examples of platform-specific products — your app should avoid that trap by being cross-platform from the start, which supports the Flutter/React Native discussion from earlier.
+	
+A note on the framework itself: in the image, "Platform (OS) - Ex - photoshop, auto cad, blender" was using desktop software as examples of platform-specific products — your app should avoid that trap by being cross-platform from the start, which supports the Flutter/React Native discussion from earlier.
